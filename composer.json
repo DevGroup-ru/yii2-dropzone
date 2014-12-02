@@ -1,0 +1,34 @@
+{
+    "name": "devgroup/yii2-dropzone",
+    "description": "Yii2 Dropzone widget",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "dropzone", "upload"],
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Alexander Kozhevnikov",
+            "email": "b37hr3z3n@gmail.com"
+        },
+        {
+            "name": "Evgeny Dubovitsky",
+            "email": "flynn068@gmail.com"
+        },
+        {
+            "name": "Pavel Fedotov",
+            "email": "fps.06@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "yiisoft/yii2": "*",
+        "bower-asset/dropzone": "*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "devgroup\\dropzone\\": ""
+        }
+    }
+}
