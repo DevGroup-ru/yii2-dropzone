@@ -20,11 +20,11 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "yiisoft/yii2": "*",
-        "bower-asset/dropzone": "*"
+        "yiisoft/yii2": "2.0.*",
+        "bower-asset/dropzone": "~3.10"
     },
     "require-dev": {
-        "yiisoft/yii2-debug": "*"
+        "yiisoft/yii2-debug": "2.0.*"
     },
     "autoload": {
         "psr-4": {
