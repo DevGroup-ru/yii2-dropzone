@@ -32,7 +32,7 @@ General Usage
 ```php
 use devgroup\dropzone\DropZone;
 
-Dropzone::widget(
+DropZone::widget(
     [
         'name' => 'file', // input name or 'model' and 'attribute'
         'url' => '', // upload url
