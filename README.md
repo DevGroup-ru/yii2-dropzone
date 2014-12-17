@@ -30,14 +30,14 @@ General Usage
 -------------
 
 ```php
-use devgroup\dropzone\Dropzone;
+use devgroup\dropzone\DropZone;
 
 Dropzone::widget(
     [
         'name' => 'file', // input name or 'model' and 'attribute'
         'url' => '', // upload url
         'storedFiles' => [], // stores files
-        'eventHandlers' = [], // dropzone event handlers
+        'eventHandlers' => [], // dropzone event handlers
         'sortable' => true, // sortable flag
         'sortableOptions' => [], // sortable options
         'htmlOptions' => [], // container html options
