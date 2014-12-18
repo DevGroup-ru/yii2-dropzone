@@ -13,9 +13,7 @@ class DropZone extends Widget
 {
     public $model;
     public $attribute;
-    public $htmlOptions = [
-        'class' => 'dropzone',
-    ];
+    public $htmlOptions = [];
     public $name;
     public $options = [];
     public $eventHandlers = [];
@@ -30,6 +28,7 @@ class DropZone extends Widget
     {
         parent::init();
 
+        Html::addCssClass($this->htmlOptions, 'dropzone');
         $this->dropzoneName = 'dropzone_' . $this->id;
     }
 
