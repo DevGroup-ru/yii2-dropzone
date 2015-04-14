@@ -6,15 +6,15 @@ use yii\web\AssetBundle;
 
 class DropZoneAsset extends AssetBundle
 {
-    public $sourcePath = '@bower/dropzone/downloads';
+    public $sourcePath = '@bower/dropzone/dist';
     public $css = [
-        'css/dropzone.css',
+        'min/dropzone.min.css',
     ];
     public $depends = [
         'yii\web\JqueryAsset',
         'yii\jui\JuiAsset',
     ];
     public $js = [
-        'dropzone.min.js',
+        'min/dropzone.min.js',
     ];
 }
