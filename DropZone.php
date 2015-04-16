@@ -21,6 +21,8 @@ class DropZone extends Widget
     public $storedFiles = [];
     public $sortable = false;
     public $sortableOptions = [];
+    public $message;
+    public $messageOptions = [];
 
     protected $dropzoneName = 'dropzone';
 
@@ -29,6 +31,7 @@ class DropZone extends Widget
         parent::init();
 
         Html::addCssClass($this->htmlOptions, 'dropzone');
+        Html::addCssClass($this->messageOptions, 'dz-message');
         $this->dropzoneName = 'dropzone_' . $this->id;
     }
 
@@ -92,9 +95,15 @@ class DropZone extends Widget
             $options['params'][Yii::$app->request->csrfParam] = Yii::$app->request->getCsrfToken();
         }
 
+        if (!empty($this->message)) {
+            $message = Html::tag('div', $this->message, $this->messageOptions);
+        } else {
+            $message = '';
+        }
+
         $this->htmlOptions['id'] = $this->id;
         $this->options = ArrayHelper::merge($this->options, $options);
-        echo Html::tag('div', '', $this->htmlOptions);
+        echo Html::tag('div', $message, $this->htmlOptions);
 
         $this->registerAssets();
 
