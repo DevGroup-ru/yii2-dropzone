@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\View;
 
 class DropZone extends Widget
 {
@@ -44,17 +45,18 @@ class DropZone extends Widget
     protected function addFiles($files = [])
     {
         foreach ($files as $file) {
+            $fileId = 'mockFile_' . uniqid();
             // Create the mock file:
             $this->getView()->registerJs(
-                'var mockFile = { name: "' . $file['name'] . '", size: ' . $file['size'] . ' };'
+                'var ' . $fileId . ' = { name: "' . $file['name'] . '", size: ' . $file['size'] . ' };'
             );
             // Call the default addedfile event handler
             $this->getView()->registerJs(
-                $this->dropzoneName . '.emit("addedfile", mockFile);'
+                $this->dropzoneName . '.emit("addedfile", ' . $fileId . ');'
             );
             // And optionally show the thumbnail of the file:
             $this->getView()->registerJs(
-                $this->dropzoneName . '.emit("thumbnail", mockFile, "' . $file['thumbnail'] . '");'
+                $this->dropzoneName . '.emit("thumbnail", ' . $fileId . ', "' . $file['thumbnail'] . '");'
             );
         }
     }
