@@ -43,22 +43,26 @@ class DropZone extends Widget
 
     protected function addFiles($files = [])
     {
-        $this->view->registerJs('var files = ' . Json::encode($files));
-        $this->view->registerJs('for (var i=0; i<files.length; i++) {
-            ' . $this->dropzoneName . '.emit("addedfile", files[i]);
-            ' . $this->dropzoneName . '.emit("thumbnail", files[i], files[i]["thumbnail"]);
-            ' . $this->dropzoneName . '.emit("complete", files[i]);
-        }');
+        if (empty($files) === false) {
+            $this->view->registerJs('var files = ' . Json::encode($files));
+            $this->view->registerJs('for (var i=0; i<files.length; i++) {
+                ' . $this->dropzoneName . '.emit("addedfile", files[i]);
+                ' . $this->dropzoneName . '.emit("thumbnail", files[i], files[i]["thumbnail"]);
+                ' . $this->dropzoneName . '.emit("complete", files[i]);
+            }');
+        }
     }
 
     protected function decrementMaxFiles($num)
     {
-        $this->getView()->registerJs(
-            'if (' . $this->dropzoneName . '.options.maxFiles > 0) { '
-            . $this->dropzoneName . '.options.maxFiles = '
-            . $this->dropzoneName . '.options.maxFiles - ' . $num . ';'
-            . ' }'
-        );
+        if ($num > 0) {
+            $this->getView()->registerJs(
+                'if (' . $this->dropzoneName . '.options.maxFiles > 0) { '
+                . $this->dropzoneName . '.options.maxFiles = '
+                . $this->dropzoneName . '.options.maxFiles - ' . $num . ';'
+                . ' }'
+            );
+        }
     }
 
     protected function createDropzone()
